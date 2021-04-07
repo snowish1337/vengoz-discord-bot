@@ -1,4 +1,4 @@
-# vengoz-discord-bot
+# Vengoz Discord Bot
 A simple discord multi-purpose bot, perfect for any kind of digital service.
 The Discord Bot includes features such as ticket commands, moderation & fun commands.
 
