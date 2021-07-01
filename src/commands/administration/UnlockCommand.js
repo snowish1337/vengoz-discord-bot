@@ -8,6 +8,7 @@ module.exports = class UnlockCommand extends BaseCommand
         super( 'unlock', 'administration', [] );
     }
 
+    // After you use it while having no permissions, this message will print.
     async run( client, message, args )
     {
         if ( !message.member.permissions.has( "MANAGE_CHANNELS" ) )
@@ -17,10 +18,12 @@ module.exports = class UnlockCommand extends BaseCommand
 
         const role = message.guild.roles.cache.get( 'MEMBERROLEID' )
 
+        // Nothing important unless you are actual developer
         let lockchannel = message.mentions.channels.first() || message.guild
             .channels.cache.get( args[ 0 ] );
         if ( !lockchannel ) lockchannel = message.channel;
 
+        // Classic succeed message
         const Embed = new Discord.MessageEmbed()
             .setAuthor( `Successfully unlocked ${lockchannel.name}` )
             .setColor( '#007ACC' )
@@ -29,6 +32,7 @@ module.exports = class UnlockCommand extends BaseCommand
                 dynamic: true
             } ) )
 
+        // Pretty self-explanatory
         await lockchannel.updateOverwrite( role
             , {
                 SEND_MESSAGES: true
