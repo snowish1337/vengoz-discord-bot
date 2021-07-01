@@ -20,3 +20,9 @@ The Discord Bot includes features such as ticket commands, moderation & fun comm
 
 - If you have any questions or run into any problems, feel free to contact me on Discord. 
 - Tag: snow#0911
+
+**To-do List:**
+- Adding comments (Will do)
+- Beautifying the code (3/4 done)
+- Adding more features (Will do)
+- Changing design (Will do)
