@@ -8,6 +8,7 @@ module.exports = class LockCommand extends BaseCommand
         super( 'lock', 'administration', [] );
     }
 
+    // Classic fail message if you do not have permission. You can change this message as long as you don't delete ''
     async run( client, message, args )
     {
         if ( !message.member.permissions.has( "MANAGE_CHANNELS" ) )
@@ -16,11 +17,13 @@ module.exports = class LockCommand extends BaseCommand
             );
 
         const role = message.guild.roles.cache.get( 'MEMBERROLEID' )
-
+        
+        // Lock happening here
         let lockchannel = message.mentions.channels.first() || message.guild
             .channels.cache.get( args[ 0 ] );
         if ( !lockchannel ) lockchannel = message.channel;
 
+        // Success message
         const Embed = new Discord.MessageEmbed()
             .setAuthor( `Successfully locked ${lockchannel.name}` )
             .setColor( '#007ACC' )
@@ -29,6 +32,7 @@ module.exports = class LockCommand extends BaseCommand
                 dynamic: true
             } ) )
 
+        // This should be self-explanatory
         await lockchannel.updateOverwrite( role
             , {
                 SEND_MESSAGES: false
