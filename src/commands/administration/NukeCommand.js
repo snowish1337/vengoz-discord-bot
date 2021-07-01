@@ -8,6 +8,7 @@ module.exports = class NukeCommand extends BaseCommand
         super( 'nuke', 'administration', [] );
     }
 
+    // Classic missing permission message, change it as long as you don't delete ''
     async run( client, message, args )
     {
         if ( !message.member.permissions.has( "ADMINISTRATOR" ) ) return message
@@ -15,6 +16,7 @@ module.exports = class NukeCommand extends BaseCommand
                 'You cannot use this command, it requires `ADMINISTRATOR` permissions.'
             );
 
+        // Success message
         const Embed = new Discord.MessageEmbed()
             .setAuthor( 'Successfully nuked this channel.' )
             .setImage(
